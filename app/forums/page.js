@@ -3,18 +3,16 @@ import { Button } from "@/components/ui/button";
 import Link from 'next/link';
 function Page() {
   const topic = [
-    { id: 1, title: 'General Discussion', description: 'Discuss anything related to My ChatApp.', lastPost: '2 days ago', slug: 'general' },
-    { id: 2, title: 'Feature Requests', description: 'Suggest new features and improvements.', lastPost: '1 week ago', slug: 'feature-requests' },
-    { id: 3, title: 'Troubleshooting', description: 'Get help with technical issues.', lastPost: '3 days ago', slug: 'troubleshooting' },
-    { id: 4, title: 'Announcements', description: 'Stay updated with the latest news and updates.', lastPost: '1 day ago', slug: 'announcements' },
-    { id: 5, title: 'Mobile App Support', description: 'Discuss issues and questions related to the mobile app.', lastPost: '5 days ago', slug: 'mobile-app-support' },
-    { id: 6, title: 'Group Chat Features', description: 'Discuss and share tips about the group chat feature.', lastPost: '4 days ago', slug: 'group-chat-features' },
-    { id: 7, title: 'Security and Privacy', description: 'Questions and discussions about security and privacy on My ChatApp.', lastPost: '6 days ago', slug: 'security-and-privacy' },
-    { id: 8, title: 'Python Development', description: 'Share Python code, tips, and questions related to My ChatApp.', lastPost: '7 days ago', slug: 'python-development' },
-    { id: 9, title: 'Next.js Development', description: 'Discuss Next.js implementation, best practices, and challenges.', lastPost: '8 days ago', slug: 'next-js-development'}, //Added slug here
-    { id: 10, title: 'Clerk Authentication', description: 'Get help and discuss Clerk authentication integration.', lastPost: '9 days ago', slug: 'clerk-authentication' },
-    { id: 11, title: 'Node.js Development', description: 'Discuss Node.js backend development for My ChatApp.', lastPost: '10 days ago', slug: 'node-js-development' },
-    { id: 12, title: 'Shadcn UI', description: 'Discuss using Shadcn UI components in My ChatApp.', lastPost: '11 days ago', slug: 'shadcn-ui' },
+    { id: 1, title: 'General Discussion', description: 'Discuss anything and everything!', lastPost: '2 hours ago', slug: 'general-discussion' },
+    { id: 2, title: 'Gaming', description: 'Talk about your favorite games, consoles, and esports.', lastPost: '30 minutes ago', slug: 'gaming' },
+    { id: 3, title: 'Movies', description: 'Discuss the latest releases, classic films, and your favorite actors.', lastPost: '1 day ago', slug: 'movies' },
+    { id: 4, title: 'Music', description: 'Share your favorite artists, albums, and playlists.', lastPost: '5 hours ago', slug: 'music' },
+    { id: 5, title: 'Technology', description: 'Discuss the latest gadgets, software, and trends.', lastPost: '1 hour ago', slug: 'technology' },
+    { id: 6, title: 'Education', description: 'Share learning resources, tips, and discuss educational topics.', lastPost: '2 days ago', slug: 'education' },
+    { id: 7, title: 'Feature Requests', description: 'Suggest new features and improvements for My ChatApp.', lastPost: '1 week ago', slug: 'feature-requests' },
+    { id: 8, title: 'Healthcare', description: 'Discuss health and wellness topics, news, and advice.', lastPost: '4 days ago', slug: 'healthcare' },
+    { id: 9, title: 'Internet', description: 'Talk about internet culture, memes, and online communities.', lastPost: '12 hours ago', slug: 'internet' },
+    { id: 10, title: 'Social Media', description: 'Discuss the latest social media trends and platforms.', lastPost: '1 day ago', slug: 'social-media' },
   ];
 
   return (

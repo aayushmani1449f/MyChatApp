@@ -1,9 +1,14 @@
+
+"use client"
 // components/Navbar.js
+import React from 'react';
 import { UserButton } from '@clerk/nextjs';
 import Link from 'next/link';
-
+import { useUser } from '@clerk/nextjs';
 
 export default function Navbar() {
+  const user = useUser()
+  console.log(user.user?.id)
   return (
     <nav className="bg-blue-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
