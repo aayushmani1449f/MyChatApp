@@ -1,51 +1,53 @@
-"use client"
-import { useState, useEffect } from 'react';
+"use client";
+import React, { useState, useEffect } from 'react';
 import { useCreateChatClient, Chat, Channel, ChannelHeader, MessageInput, MessageList, Thread, Window } from 'stream-chat-react';
 import 'stream-chat-react/dist/css/v2/index.css';
 
-const apiKey = 'bp6twe7gmjyq';
-const userId = 'user_2tagw5NVFIRTCXLTbq5Z0tYARGE';
-const userName = 'Aayush';
-const userToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoidXNlcl8ydGFndzVOVkZJUlRDWExUYnE1WjB0WUFSR0UifQ.KLPVmubLwDRuR4FhZ3XZmTCg7FroD9kDyMmUalywX38';
+const ChatForum = ({ clerkUser, slug }) => {
+    const apiKey = 'bp6twe7gmjyq';
+    const userId = clerkUser.id; // Use optional chaining to prevent errors if clerkUser is undefined
+    const userName = clerkUser.name;
+    const userToken = clerkUser.token;
 
-const user = {
-  id: userId,
-  name: userName,
-  image: `https://getstream.io/random_png/?name=${userName}`,
-};
+    const user = {
+        id: userId,
+        name: userName,
+        image: `https://getstream.io/random_png/?name=${userName}`,
+    };
 
-export default function ChatForum({slug}) {
-  const [channel, setChannel] = useState();
-  const client = useCreateChatClient({
-    apiKey,
-    tokenOrProvider: userToken,
-    userData: user,
-  });
-
-  useEffect(() => {
-    if (!client) return;
-
-    const channel = client.channel('messaging', slug, {
-      image: 'https://getstream.io/random_png/?name=react',
-      name: 'Discussion',
-      members: [userId],
+    const [channel, setChannel] = useState(null); // Initialize channel as null
+    const client = useCreateChatClient({
+        apiKey,
+        tokenOrProvider: userToken,
+        userData: user,
     });
 
-    setChannel(channel);
-  }, [client]);
+    useEffect(() => {
+        if (!client) return;
 
-  if (!client) return <div>Loading .... Please wait</div>;
+                const channel = client.channel('messaging', slug, {
+                    image: 'https://getstream.io/random_png/?name=react',
+                    name: 'Discussion',
+                    members: [userId],
+                });
 
-  return (
-    <Chat client={client}>
-      <Channel channel={channel}>
-        <Window>
-          <ChannelHeader />
-          <MessageList />
-          <MessageInput />
-        </Window>
-        <Thread />
-      </Channel>
-    </Chat>
-  );
+        });
+        setChannel(channel);
+
+    if (!client) return <div>Setting up client & connection...</div>;
+
+    return (
+        <Chat client={client}>
+          <Channel channel={channel}>
+            <Window>
+              <ChannelHeader />
+              <MessageList />
+              <MessageInput />
+            </Window>
+            <Thread />
+          </Channel>
+        </Chat>
+      );
 };
+
+export default ChatForum;
